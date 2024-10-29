@@ -1,0 +1,14 @@
+<%- include('layout') %>  
+<% if (items.length) { %> 
+    <div class="container">
+        <h2>Items</h2>  
+        <ul>  
+        <% items.forEach(item => { %>  
+            <li><%= item.name %> (Quantity: <%= item.quantity %>, Price: <%= item.price %>, Category: <%= item.Category.name %>) <form action="/items/<%= item.id %>" method="POST" style="display: inline;"><button type="submit" class="btn btn-danger">Delete</button></form></li>  
+        <% }) %>  
+    </ul>  
+<% } else { %>  
+    <p>No items found</p>  
+<% } %>  
+<a class="btn btn-success" href="/items/create">Create Item</a>
+</div>

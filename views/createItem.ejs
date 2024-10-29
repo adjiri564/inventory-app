@@ -1,0 +1,27 @@
+<%- include('layout') %>
+<div class="container">
+<h2>Create Item</h2>  
+<form action="/items" method="POST">  
+    <div class="mb-3">  
+        <label>Name</label>  
+        <input type="text" name="name" class="form-control" required>  
+    </div>  
+    <div class="mb-3">  
+        <label>Quantity</label>  
+        <input type="number" name="quantity" class="form-control" required>  
+    </div>  
+    <div class="mb-3">  
+        <label>Price</label>  
+        <input type="text" name="price" class="form-control" required>  
+    </div>  
+    <div class="mb-3">  
+        <label>Category</label>  
+        <select name="category_id" class="form-control" required>  
+            <% categories.forEach(category => { %>  
+                <option value="<%= category.id %>"><%= category.name %></option>  
+            <% }) %>  
+        </select>  
+    </div>  
+    <button type="submit" class="btn btn-primary">Create</button>  
+    </form>
+</div>

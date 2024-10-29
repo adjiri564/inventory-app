@@ -1,0 +1,14 @@
+<%- include('layout') %>  
+<% if (categories.length) { %>
+    <div class="container">
+        <h2>Categories</h2>  
+        <ul>  
+        <% categories.forEach(category => { %>  
+            <li><%= category.name %> <form action="/categories/<%= category.id %>" method="POST" style="display: inline;"><button type="submit" onclick="return confirm('Are you sure you want to delete this category?')" class="btn btn-danger">Delete</button></form></li>  
+        <% }) %>  
+    </ul> 
+<% } else { %>  
+    <p>No categories found</p>  
+<% } %>  
+<a class="btn btn-success" href="/categories/create">Create Category</a>
+</div>
